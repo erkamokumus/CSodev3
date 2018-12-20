@@ -1,26 +1,31 @@
-package enbuyuksayi;
+package enBuyuk;
 
 import java.util.Scanner;
 
-public class enbuyuksayi {
-   public static void main(String[] args) 
-   {
-	   Scanner baslangic=new Scanner(System.in);
+public class enBuyuk {
+	public static void main(String[] args) {
+		System.out.print("Lütfen kaç tane sayı gireceğinizi yazınız:");
+		Scanner scan = new Scanner(System.in);
+		int n=scan.nextInt();
+		int array[] = new int [n];
 		
-		System.out.print("x degeri:");
-		int x=baslangic.nextInt();
-		
-		int enbuyuk=0,sayi;
-		for(int i=0;i<x;i++)
-		{
-			System.out.print((i+1)+". Sayi:");
-			sayi=baslangic.nextInt();
-			
-			if(sayi>enbuyuk)
-			{
-				enbuyuk=sayi;
+		for(int i=0;i<n;i++) {
+			System.out.print((i+1)+". Sayı:");
+			array[i]=scan.nextInt();
+		}
+	
+	
+		int enBuyuk=enbuyuk(array);
+		System.out.println("En büyük sayı:"+enBuyuk);
+	}
+	
+	public static int enbuyuk(int[]array) {
+		int enBuyuk= array[0];
+		for (int j=1;j<array.length;j++) {
+			if(array[j]>enBuyuk) {
+				enBuyuk=array[j];
 			}
 		}
-		System.out.println("Sayilardan en büyüğü:"+enbuyuk);		
-	}	
+		return enBuyuk;
+	}
 }
